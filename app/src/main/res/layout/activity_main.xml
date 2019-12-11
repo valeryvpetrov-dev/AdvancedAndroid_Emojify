@@ -12,9 +12,6 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.-->
-
-<!-- TODO (5): Remove all the onClick methods in the XML -->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -52,7 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:onClick="emojifyMe"
         android:text="@string/go"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
@@ -63,7 +59,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:onClick="clearImage"
         android:src="@drawable/ic_clear"
         android:visibility="gone"
         app:backgroundTint="@android:color/white"
@@ -79,7 +74,6 @@
         android:layout_marginBottom="@dimen/fab_margins"
         android:layout_marginEnd="@dimen/fab_margins"
         android:layout_marginRight="@dimen/fab_margins"
-        android:onClick="saveMe"
         android:src="@drawable/ic_save"
         android:visibility="gone"
         app:backgroundTint="@android:color/white" />
@@ -94,7 +88,6 @@
         android:layout_marginBottom="@dimen/fab_margins"
         android:layout_marginLeft="@dimen/fab_margins"
         android:layout_marginStart="@dimen/fab_margins"
-        android:onClick="shareMe"
         android:src="@drawable/ic_share"
         android:visibility="gone"
         app:backgroundTint="@android:color/white" />
