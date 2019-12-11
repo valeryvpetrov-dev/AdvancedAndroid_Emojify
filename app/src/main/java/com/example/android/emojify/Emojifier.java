@@ -18,6 +18,7 @@ package com.example.android.emojify;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
+
+import java.util.Locale;
 
 class Emojifier {
 
@@ -58,11 +61,22 @@ class Emojifier {
             Toast.makeText(context, R.string.no_faces_message, Toast.LENGTH_SHORT).show();
         }
 
-        // TODO (2): Iterate through the faces, calling getClassifications() for each face.
+        for (int i = 0; i < faces.size(); i++) {
+            Face face = faces.valueAt(i);
+            getClassifications(face);
+        }
 
         // Release the detector
         detector.release();
     }
 
-    // TODO (1): Create a static method called getClassifications() which logs the probability of each eye being open and that the person is smiling.
+    public static void getClassifications(@NonNull Face face) {
+        float isLeftEyeOpenProbability = face.getIsLeftEyeOpenProbability();
+        float isRightEyeOpenProbability = face.getIsRightEyeOpenProbability();
+        float isSmilingProbability = face.getIsSmilingProbability();
+
+        Log.d(LOG_TAG, String.format(Locale.getDefault(), "Face=%s. isLeftEyeOpen=%f", face, isLeftEyeOpenProbability));
+        Log.d(LOG_TAG, String.format(Locale.getDefault(), "Face=%s. isRightEyeOpen=%f", face, isRightEyeOpenProbability));
+        Log.d(LOG_TAG, String.format(Locale.getDefault(), "Face=%s. isSmiling=%f", face, isSmilingProbability));
+    }
 }
